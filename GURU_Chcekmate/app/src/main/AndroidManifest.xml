@@ -5,16 +5,24 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="To Do App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GURU_Chcekmate">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".AddTodoActivity2"
+            android:parentActivityName=".MainActivity">
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+        </activity>
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".Title">
+
         </activity>
     </application>
 

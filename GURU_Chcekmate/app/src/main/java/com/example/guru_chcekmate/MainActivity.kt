@@ -1,4 +1,4 @@
-package com.example.todopractice2
+package com.example.guru_chcekmate
 
 import android.app.Activity
 import android.content.ClipData

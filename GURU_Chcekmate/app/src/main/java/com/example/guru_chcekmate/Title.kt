@@ -1,4 +1,4 @@
-package com.example.todopractice2;
+package com.example.guru_chcekmate;
 
 
 import android.content.DialogInterface
@@ -12,8 +12,8 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import com.example.todopractice2.MainActivity
-import com.example.todopractice2.R
+import com.example.guru_chcekmate.MainActivity
+import com.example.guru_chcekmate.R
 import org.w3c.dom.Text
 import java.util.*
 

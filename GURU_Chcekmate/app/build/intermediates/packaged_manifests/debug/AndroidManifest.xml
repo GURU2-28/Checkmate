@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.guru_chcekmate"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="30" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="To Do App"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/Theme.GURU_Chcekmate" >
+        <activity android:name="com.example.guru_chcekmate.Title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.guru_chcekmate.AddTodoActivity2"
+            android:parentActivityName="com.example.guru_chcekmate.MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.guru_chcekmate.MainActivity"
+            android:parentActivityName="com.example.guru_chcekmate.Title" >
+        </activity>
+    </application>
+
+</manifest>

@@ -17,8 +17,8 @@
         </activity>
         <activity
             android:name=".AddTodoActivity2"
-            android:parentActivityName=".MainActivity">
-            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
         </activity>
         <activity android:name=".MainActivity"
             android:parentActivityName=".Title">

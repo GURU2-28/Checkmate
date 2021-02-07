@@ -23,6 +23,7 @@
         android:layout_marginBottom="100dp"
         android:bufferType="spannable"
         android:fontFamily="@font/sdsamliphopangchettfoutline"
+        android:text="체크메이트"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_exit"
         app:layout_constraintEnd_toEndOf="parent"

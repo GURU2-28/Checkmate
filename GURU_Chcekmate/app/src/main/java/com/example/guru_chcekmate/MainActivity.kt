@@ -21,7 +21,7 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-
+//테스트
     var list: MutableList<ItemVO> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {

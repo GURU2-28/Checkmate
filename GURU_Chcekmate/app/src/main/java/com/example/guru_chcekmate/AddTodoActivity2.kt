@@ -14,6 +14,7 @@ import com.example.guru_chcekmate.R
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlinx.android.synthetic.main.activity_add_todo2.*
+//실험용 push - 정혜주
 
 class AddTodoActivity2 : AppCompatActivity() {
 

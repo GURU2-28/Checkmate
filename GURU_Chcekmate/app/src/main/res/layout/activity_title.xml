@@ -29,29 +29,31 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_exit"
-        android:layout_width="89dp"
-        android:layout_height="46dp"
+        android:id="@+id/btn_plan"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:layout_marginStart="40dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/button_round"
         android:fontFamily="@font/sdsamliphopangchettfbasic"
-        android:text="종료"
+        android:text="일정관리"
         android:textSize="24sp"
+        app:backgroundTint="#E89292"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/btn_plan"
-        android:layout_width="135dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="80dp"
+        android:id="@+id/btn_exit"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/button_round"
         android:fontFamily="@font/sdsamliphopangchettfbasic"
-        android:text="일정관리"
+        android:text="종료"
         android:textSize="24sp"
+        app:backgroundTint="#E89292"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

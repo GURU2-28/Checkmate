@@ -135,6 +135,7 @@ class MainActivity : AppCompatActivity() {
                 viewHolder.itemTitleView.setText(dataItem.title)
                 viewHolder.itemContentView.setText(dataItem.content)
 
+                // 삭제 아이콘 클릭시
                 viewHolder.deleteButton.setOnClickListener {
                     val helper = DBHelper(this@MainActivity)
                     val db=helper.writableDatabase
@@ -146,6 +147,7 @@ class MainActivity : AppCompatActivity() {
                     db.close()
                 }
 
+                // 사용자가 체크박스 클릭시
                 viewHolder.completedIconView.setOnCheckedChangeListener { buttonView, isChecked ->
                     val helper = DBHelper(this@MainActivity)
                     val db=helper.writableDatabase

@@ -3,7 +3,10 @@ package com.example.guru_chcekmate
 import android.app.Activity
 import android.content.ClipData
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -113,6 +116,8 @@ class MainActivity : AppCompatActivity() {
         {
             val itemVO = list.get(position)
 
+
+
             if(itemVO.type==ItemVO.TYPE_HEADER){
                 val viewHolder = holder as HeaderViewHolder
                 val headerItem = itemVO as HeaderItem
@@ -125,6 +130,12 @@ class MainActivity : AppCompatActivity() {
 
                 if(dataItem.completed){
                     viewHolder.completedIconView.setImageResource(R.drawable.icon_completed)
+                    viewHolder.itemTitleView.setTextColor(Color.GRAY)
+                    viewHolder.itemTitleView.apply {
+                        setTextColor(Color.GRAY)
+                        paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                        setTypeface(null, Typeface.ITALIC)
+                    }
                 }else{
                     viewHolder.completedIconView.setImageResource(R.drawable.icon)
                 }
@@ -136,6 +147,12 @@ class MainActivity : AppCompatActivity() {
                     if(dataItem.completed){
                         db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(0, dataItem.id))
                         viewHolder.completedIconView.setImageResource(R.drawable.icon)
+                        /*viewHolder.itemTitleView.setTextColor(Color.GRAY)
+                        viewHolder.itemTitleView.apply {
+                            setTextColor(Color.GRAY)
+                            paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                            setTypeface(null, Typeface.ITALIC)
+                        }*/
                     }else{
                         db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(1, dataItem.id))
                         viewHolder.completedIconView.setImageResource(R.drawable.icon_completed)

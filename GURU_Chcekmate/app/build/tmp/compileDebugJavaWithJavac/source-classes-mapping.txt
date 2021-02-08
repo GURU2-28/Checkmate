@@ -1,0 +1,2 @@
+com/example/guru_chcekmate/BuildConfig.java
+ com.example.guru_chcekmate.BuildConfig

@@ -51,6 +51,7 @@ class Title : AppCompatActivity() {
 
     }
 
+    // 종료버튼 클릭시 팝업창을 띄었을때 팝업창 화면 구성
     private fun showSettingPopup(){
         val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.exit_popup,null)

@@ -22,10 +22,12 @@ class AddTodoActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_todo2)
 
+        //activity_add_todo2 화면에 기본적으로 현재 날짜를 출력함
         val date =  Date()
         val sdFormat = SimpleDateFormat("yyyy-MM-dd")
         addDateView.text=sdFormat.format(date)
 
+        //사용자가 날짜 클릭시 DatePickerDialgo(캘린더)를 출력하여 날짜 선택이 가능토록 함
         addDateView.setOnClickListener{
             val c = Calendar.getInstance()
             val year = c.get(Calendar.YEAR)
@@ -40,11 +42,14 @@ class AddTodoActivity2 : AppCompatActivity() {
         }
     }
 
+    //AddTodoActivity2에 메뉴가 출력되게 함
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_add, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    //사용자가 메뉴를 클릭했을 때 호출되는 메소드
+    //사용자가 입력한 데이터를 db에 저장하고 화면을 MainActivity로 되돌림
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item?.itemId==R.id.menu_add){
             if(addTitleEditView.text.toString() != null && addContentEditView.text.toString() != null){

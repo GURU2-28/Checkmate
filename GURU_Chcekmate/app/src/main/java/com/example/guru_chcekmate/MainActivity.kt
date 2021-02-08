@@ -25,7 +25,8 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-//테스트
+
+    //list 객체에 db에서 선택한 데이터 저장
     var list: MutableList<ItemVO> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //db에서 데이터를 선택하기위한 메소드
     private fun selectDB(){
         list = mutableListOf()
         val helper = DBHelper(this)
@@ -72,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(MyDecoration())
     }
 
-    // 신규 항목 추가(리사이클러뷰에)
+    // 리사이클러뷰에 신규 항목 추가
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==10 && resultCode== Activity.RESULT_OK){
@@ -80,26 +82,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // 뷰를 준비함
+    // 뷰홀더1 : 뷰를 준비함
     class HeaderViewHolder(view: View): RecyclerView.ViewHolder(view){
         val headerView = view.itemHeaderView
     }
 
-    // 데이타 준비함
+    // 뷰홀더2: 데이타 준비함
     class DataViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val completedIconView = view.completedIconView
+        val completedIconView = view.checkTodo
         val itemTitleView = view.itemTitleView
         val itemContentView = view.itemContentView
         val deleteButton = view.deleteButton
 
     }
 
+    // 어댑터 설정
     inner class MyAdapter(val list: MutableList<ItemVO>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
+        //만일 항목타입이 다를 경우
         override fun getItemViewType(position: Int): Int {
             return list.get(position).type
         }
 
+        //getItemViewType에서 결정한 항목타입 전달, 타입이 HEADER쪽인지 DATA쪽인지 판단
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             if(viewType==ItemVO.TYPE_HEADER){
                 // parent?.context : parent가 not null 이면 context가 리턴되고 null 이면 null이 리턴된다.
@@ -111,14 +116,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //항목 구성(HEADER, DATA)
         override fun onBindViewHolder(
             holder: RecyclerView.ViewHolder,
             position: Int
         )
         {
+            //항목 타입 전달(HEADER, DATA)
             val itemVO = list.get(position)
-
-
 
             if(itemVO.type==ItemVO.TYPE_HEADER){
                 val viewHolder = holder as HeaderViewHolder
@@ -130,17 +135,7 @@ class MainActivity : AppCompatActivity() {
                 viewHolder.itemTitleView.setText(dataItem.title)
                 viewHolder.itemContentView.setText(dataItem.content)
 
-                if(dataItem.completed){
-                    viewHolder.completedIconView.setImageResource(R.drawable.icon_completed)
-                    viewHolder.itemTitleView.setTextColor(Color.GRAY)
-                    viewHolder.itemTitleView.apply {
-                        setTextColor(Color.GRAY)
-                        paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                        setTypeface(null, Typeface.ITALIC)
-                    }
-                }else{
-                    viewHolder.completedIconView.setImageResource(R.drawable.icon)
-                }
+                // 삭제 아이콘 클릭시
                 viewHolder.deleteButton.setOnClickListener {
                     val helper = DBHelper(this@MainActivity)
                     val db=helper.writableDatabase
@@ -152,24 +147,46 @@ class MainActivity : AppCompatActivity() {
                     db.close()
                 }
 
-                viewHolder.completedIconView.setOnClickListener{
+                // 사용자가 체크박스 클릭시
+                viewHolder.completedIconView.setOnCheckedChangeListener { buttonView, isChecked ->
                     val helper = DBHelper(this@MainActivity)
                     val db=helper.writableDatabase
-
-                    if(dataItem.completed){
+                    if(isChecked) {
                         db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(0, dataItem.id))
-                        viewHolder.completedIconView.setImageResource(R.drawable.icon)
-                        /*viewHolder.itemTitleView.setTextColor(Color.GRAY)
                         viewHolder.itemTitleView.apply {
                             setTextColor(Color.GRAY)
                             paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                             setTypeface(null, Typeface.ITALIC)
-                        }*/
+                        }
+                        viewHolder.itemContentView.apply {
+                            setTextColor(Color.GRAY)
+                            paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                            setTypeface(null, Typeface.ITALIC)
+                        }
+                    }
+                    else{
+                        db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(1, dataItem.id))
+                        viewHolder.itemTitleView.apply {
+                            setTextColor(Color.GRAY)
+                            paintFlags=Paint.START_HYPHEN_EDIT_NO_EDIT
+                            setTypeface(null, Typeface.BOLD)
+                        }
+                        viewHolder.itemContentView.apply {
+                            setTextColor(Color.GRAY)
+                            paintFlags=Paint.START_HYPHEN_EDIT_NO_EDIT
+                            setTypeface(null, Typeface.NORMAL)
+                        }
+                    }
+
+                    /*if(dataItem.completed){
+                        db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(0, dataItem.id))
+                        viewHolder.completedIconView.setImageResource(R.drawable.icon)
+
                     }else{
                         db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(1, dataItem.id))
                         viewHolder.completedIconView.setImageResource(R.drawable.icon_completed)
                     }
-                    dataItem.completed = dataItem.completed
+                    dataItem.completed = dataItem.completed*/
                     db.close()
                 }
             }
@@ -200,6 +217,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+
 abstract class ItemVO{
     abstract val type: Int
     companion object{
@@ -208,11 +226,13 @@ abstract class ItemVO{
     }
 }
 
+//ItemVO를 상속받아 날짜 데이타를 표현하는 클래스
 class HeaderItem(var data: String): ItemVO(){
     override val type: Int
         get() = ItemVO.TYPE_HEADER
 }
 
+//ItemVO를 상속받아 todo데이터 표현을 위한 클래스
 class DataItem(var id: Int, var title: String, var content: String, var completed: Boolean=false): ItemVO() {
     override val type: Int
         get() = ItemVO.TYPE_DATA

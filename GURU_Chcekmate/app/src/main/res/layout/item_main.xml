@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/completedIconView"
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:clickable="true"
         android:maxWidth="32dp"
         android:maxHeight="32dp"
-        android:src="@drawable/icon" />
+        android:adjustViewBounds="true"
+        android:clickable="true"/>
 
     <TextView
         android:id="@+id/itemTitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/completedIconView"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/checkTodo"
         android:ellipsize="end"
         android:maxLines="1"
         android:textSize="15dp"
@@ -34,7 +34,8 @@
         android:layout_below="@+id/itemTitleView"
         android:layout_alignLeft="@+id/itemTitleView"
         android:ellipsize="end"
-        android:maxLines="1" />
+        android:maxLines="1"
+        />
 
     <ImageButton
         android:id="@+id/deleteButton"

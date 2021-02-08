@@ -16,12 +16,12 @@
         "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\layout\\item_header.xml"
     },
     {
-        "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon.png.flat",
         "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\drawable\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",

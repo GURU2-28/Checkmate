@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_header.view.*
+import kotlinx.android.synthetic.main.item_main.*
 import kotlinx.android.synthetic.main.item_main.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -141,10 +142,14 @@ class MainActivity : AppCompatActivity() {
                     viewHolder.completedIconView.setImageResource(R.drawable.icon)
                 }
                 viewHolder.deleteButton.setOnClickListener {
+                    val helper = DBHelper(this@MainActivity)
+                    val db=helper.writableDatabase
                     if(position != RecyclerView.NO_POSITION){
+                        db.execSQL("delete from tb_todo WHERE title='"+viewHolder.itemTitleView.text.toString()+"';")
                         list.remove(list.get(position))
                         notifyDataSetChanged()
                     }
+                    db.close()
                 }
 
                 viewHolder.completedIconView.setOnClickListener{

@@ -1797,6 +1797,7 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
+id checkTodo
 id checkbox
 id checked
 id chip
@@ -1811,7 +1812,6 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
-id completedIconView
 id confirm_button
 id container
 id content

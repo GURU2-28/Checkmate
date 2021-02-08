@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
     // 데이타 준비함
     class DataViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val completedIconView = view.completedIconView
+        val completedIconView = view.checkTodo
         val itemTitleView = view.itemTitleView
         val itemContentView = view.itemContentView
         val deleteButton = view.deleteButton
@@ -130,17 +130,6 @@ class MainActivity : AppCompatActivity() {
                 viewHolder.itemTitleView.setText(dataItem.title)
                 viewHolder.itemContentView.setText(dataItem.content)
 
-                if(dataItem.completed){
-                    viewHolder.completedIconView.setImageResource(R.drawable.icon_completed)
-                    viewHolder.itemTitleView.setTextColor(Color.GRAY)
-                    viewHolder.itemTitleView.apply {
-                        setTextColor(Color.GRAY)
-                        paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                        setTypeface(null, Typeface.ITALIC)
-                    }
-                }else{
-                    viewHolder.completedIconView.setImageResource(R.drawable.icon)
-                }
                 viewHolder.deleteButton.setOnClickListener {
                     val helper = DBHelper(this@MainActivity)
                     val db=helper.writableDatabase
@@ -152,24 +141,45 @@ class MainActivity : AppCompatActivity() {
                     db.close()
                 }
 
-                viewHolder.completedIconView.setOnClickListener{
+                viewHolder.completedIconView.setOnCheckedChangeListener { buttonView, isChecked ->
                     val helper = DBHelper(this@MainActivity)
                     val db=helper.writableDatabase
-
-                    if(dataItem.completed){
+                    if(isChecked) {
                         db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(0, dataItem.id))
-                        viewHolder.completedIconView.setImageResource(R.drawable.icon)
-                        /*viewHolder.itemTitleView.setTextColor(Color.GRAY)
                         viewHolder.itemTitleView.apply {
                             setTextColor(Color.GRAY)
                             paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                             setTypeface(null, Typeface.ITALIC)
-                        }*/
+                        }
+                        viewHolder.itemContentView.apply {
+                            setTextColor(Color.GRAY)
+                            paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                            setTypeface(null, Typeface.ITALIC)
+                        }
+                    }
+                    else{
+                        db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(1, dataItem.id))
+                        viewHolder.itemTitleView.apply {
+                            setTextColor(Color.GRAY)
+                            paintFlags=Paint.START_HYPHEN_EDIT_NO_EDIT
+                            setTypeface(null, Typeface.BOLD)
+                        }
+                        viewHolder.itemContentView.apply {
+                            setTextColor(Color.GRAY)
+                            paintFlags=Paint.START_HYPHEN_EDIT_NO_EDIT
+                            setTypeface(null, Typeface.NORMAL)
+                        }
+                    }
+
+                    /*if(dataItem.completed){
+                        db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(0, dataItem.id))
+                        viewHolder.completedIconView.setImageResource(R.drawable.icon)
+
                     }else{
                         db.execSQL("update tb_todo set completed=? where _id=?", arrayOf(1, dataItem.id))
                         viewHolder.completedIconView.setImageResource(R.drawable.icon_completed)
                     }
-                    dataItem.completed = dataItem.completed
+                    dataItem.completed = dataItem.completed*/
                     db.close()
                 }
             }

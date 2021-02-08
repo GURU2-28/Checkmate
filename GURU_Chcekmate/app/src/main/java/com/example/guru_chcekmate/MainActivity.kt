@@ -89,6 +89,7 @@ class MainActivity : AppCompatActivity() {
         val completedIconView = view.completedIconView
         val itemTitleView = view.itemTitleView
         val itemContentView = view.itemContentView
+        val deleteButton = view.deleteButton
 
     }
 
@@ -138,6 +139,12 @@ class MainActivity : AppCompatActivity() {
                     }
                 }else{
                     viewHolder.completedIconView.setImageResource(R.drawable.icon)
+                }
+                viewHolder.deleteButton.setOnClickListener {
+                    if(position != RecyclerView.NO_POSITION){
+                        list.remove(list.get(position))
+                        notifyDataSetChanged()
+                    }
                 }
 
                 viewHolder.completedIconView.setOnClickListener{

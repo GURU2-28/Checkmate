@@ -141,7 +141,10 @@ class MainActivity : AppCompatActivity() {
                     viewHolder.completedIconView.setImageResource(R.drawable.icon)
                 }
                 viewHolder.deleteButton.setOnClickListener {
+                    val helper = DBHelper(this@MainActivity)
+                    val db=helper.writableDatabase
                     if(position != RecyclerView.NO_POSITION){
+                        db.execSQL("delete from tb_todo")
                         list.remove(list.get(position))
                         notifyDataSetChanged()
                     }

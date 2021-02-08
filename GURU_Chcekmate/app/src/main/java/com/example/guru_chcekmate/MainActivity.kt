@@ -25,7 +25,8 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-//테스트
+
+    //list 객체에 db에서 선택한 데이터 저장
     var list: MutableList<ItemVO> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //db에서 데이터를 선택하기위한 메소드
     private fun selectDB(){
         list = mutableListOf()
         val helper = DBHelper(this)
@@ -72,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(MyDecoration())
     }
 
-    // 신규 항목 추가(리사이클러뷰에)
+    // 리사이클러뷰에 신규 항목 추가
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==10 && resultCode== Activity.RESULT_OK){
@@ -80,12 +82,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // 뷰를 준비함
+    // 뷰홀더1 : 뷰를 준비함
     class HeaderViewHolder(view: View): RecyclerView.ViewHolder(view){
         val headerView = view.itemHeaderView
     }
 
-    // 데이타 준비함
+    // 뷰홀더2: 데이타 준비함
     class DataViewHolder(view: View): RecyclerView.ViewHolder(view){
         val completedIconView = view.completedIconView
         val itemTitleView = view.itemTitleView
@@ -94,12 +96,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // 어댑터 설정
     inner class MyAdapter(val list: MutableList<ItemVO>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
+        //만일 항목타입이 다를 경우
         override fun getItemViewType(position: Int): Int {
             return list.get(position).type
         }
 
+        //getItemViewType에서 결정한 항목타입 전달, 타입이 HEADER쪽인지 DATA쪽인지 판단
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             if(viewType==ItemVO.TYPE_HEADER){
                 // parent?.context : parent가 not null 이면 context가 리턴되고 null 이면 null이 리턴된다.
@@ -111,14 +116,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //항목 구성(HEADER, DATA)
         override fun onBindViewHolder(
             holder: RecyclerView.ViewHolder,
             position: Int
         )
         {
+            //항목 타입 전달(HEADER, DATA)
             val itemVO = list.get(position)
-
-
 
             if(itemVO.type==ItemVO.TYPE_HEADER){
                 val viewHolder = holder as HeaderViewHolder
@@ -200,6 +205,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+
 abstract class ItemVO{
     abstract val type: Int
     companion object{
@@ -208,11 +214,13 @@ abstract class ItemVO{
     }
 }
 
+//ItemVO를 상속받아 날짜 데이타를 표현하는 클래스
 class HeaderItem(var data: String): ItemVO(){
     override val type: Int
         get() = ItemVO.TYPE_HEADER
 }
 
+//ItemVO를 상속받아 todo데이터 표현을 위한 클래스
 class DataItem(var id: Int, var title: String, var content: String, var completed: Boolean=false): ItemVO() {
     override val type: Int
         get() = ItemVO.TYPE_DATA

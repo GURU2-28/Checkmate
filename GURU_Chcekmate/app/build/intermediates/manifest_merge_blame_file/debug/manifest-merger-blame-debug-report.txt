@@ -6,58 +6,61 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml
+8-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="30" />
-9-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml
+9-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:5:5-27:19
+11-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:5:5-28:19
 12        android:allowBackup="true"
-12-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:6:9-35
+12-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.3.2] C:\Users\minj-L\.gradle\caches\transforms-2\files-2.1\1214a77393508826b51992a0843a37aa\core-1.3.2\AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.3.2] C:\Users\Kyuri_Park\.gradle\caches\transforms-2\files-2.1\1214a77393508826b51992a0843a37aa\core-1.3.2\AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
-15-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:7:9-43
+15-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:7:9-43
 16        android:label="To Do App"
-16-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:8:9-34
+16-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:8:9-34
 17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:9:9-54
+17-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
-18-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:10:9-35
+18-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
-20        android:theme="@style/Theme.GURU_Chcekmate" >
-20-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:11:9-52
-21        <activity android:name="com.example.guru_chcekmate.Title" >
-21-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:12:9-17:20
-21-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:12:19-40
-22            <intent-filter>
-22-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:13:13-16:29
-23                <action android:name="android.intent.action.MAIN" />
-23-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:14:17-69
-23-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:14:25-66
-24
-25                <category android:name="android.intent.category.LAUNCHER" />
-25-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:15:17-77
-25-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:15:27-74
-26            </intent-filter>
-27        </activity>
-28        <activity
-28-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:18:9-22:20
-29            android:name="com.example.guru_chcekmate.AddTodoActivity2"
-29-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:19:13-45
-30            android:parentActivityName="com.example.guru_chcekmate.MainActivity"
-30-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:20:13-55
-31            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" >
-31-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:21:13-83
-32        </activity>
-33        <activity
-33-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:23:9-26:20
-34            android:name="com.example.guru_chcekmate.MainActivity"
-34-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:23:19-47
-35            android:parentActivityName="com.example.guru_chcekmate.Title" >
-35-->C:\GURU2\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:24:13-48
-36        </activity>
-37    </application>
-38
-39</manifest>
+20        android:theme="@style/GURU_Chcekmate" >
+20-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:11:9-46
+21        <activity
+21-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:12:9-18:20
+22            android:name="com.example.guru_chcekmate.Title"
+22-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:12:19-40
+23            android:theme="@style/SplashTheme" >
+23-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:13:13-47
+24            <intent-filter>
+24-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:14:13-17:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:15:17-69
+25-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:15:25-66
+26
+27                <category android:name="android.intent.category.LAUNCHER" />
+27-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:16:17-77
+27-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:16:27-74
+28            </intent-filter>
+29        </activity>
+30        <activity
+30-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:19:9-23:20
+31            android:name="com.example.guru_chcekmate.AddTodoActivity2"
+31-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:20:13-45
+32            android:parentActivityName="com.example.guru_chcekmate.MainActivity"
+32-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:21:13-55
+33            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" >
+33-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:22:13-83
+34        </activity>
+35        <activity
+35-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:24:9-27:20
+36            android:name="com.example.guru_chcekmate.MainActivity"
+36-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:24:19-47
+37            android:parentActivityName="com.example.guru_chcekmate.Title" >
+37-->C:\GURU\Checkmate\GURU_Chcekmate\app\src\main\AndroidManifest.xml:25:13-48
+38        </activity>
+39    </application>
+40
+41</manifest>

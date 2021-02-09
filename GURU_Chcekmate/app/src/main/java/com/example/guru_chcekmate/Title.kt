@@ -28,6 +28,7 @@ class Title : AppCompatActivity() {
     //타이틀 액티비티
     //exit_popup 타이틀에서 종료시 팝업용
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.GURU_Chcekmate)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_title)
 

@@ -1031,6 +1031,7 @@ color foreground_material_dark
 color foreground_material_light
 color gray
 color gray00
+color gray01
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color logo_background
@@ -2612,6 +2613,7 @@ style CardView
 style CardView_Dark
 style CardView_Light
 style EmptyTheme
+style GURU_Chcekmate
 style MaterialAlertDialog_MaterialComponents
 style MaterialAlertDialog_MaterialComponents_Body_Text
 style MaterialAlertDialog_MaterialComponents_Picker_Date_Calendar
@@ -2674,6 +2676,7 @@ style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Year
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
 style ShapeAppearanceOverlay_TopLeftCut
 style ShapeAppearanceOverlay_TopRightDifferentCornerSize
+style SplashTheme
 style Test_ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style Test_Theme_MaterialComponents_MaterialCalendar
 style Test_Widget_MaterialComponents_MaterialCalendar

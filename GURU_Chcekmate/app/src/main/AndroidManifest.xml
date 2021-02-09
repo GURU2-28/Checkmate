@@ -8,8 +8,9 @@
         android:label="To Do App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GURU_Chcekmate">
-        <activity android:name=".Title">
+        android:theme="@style/GURU_Chcekmate">
+        <activity android:name=".Title"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

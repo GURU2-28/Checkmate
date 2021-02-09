@@ -1,5 +1,6 @@
 package com.example.guru_chcekmate
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ClipData
 import android.content.Intent
@@ -10,10 +11,13 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,14 +28,29 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ItemDragListener {
 
     //list 객체에 db에서 선택한 데이터 저장
     var list: MutableList<ItemVO> = mutableListOf()
 
+    lateinit var mainAdapter: MyAdapter //드래그 앤 드롭
+    lateinit var itemTouchHelper: ItemTouchHelper //드래그 앤 드롭
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //드래그 앤 드롭
+        mainAdapter = MyAdapter(list,this)
+
+        recyclerView.apply {
+            adapter = mainAdapter
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+        }
+
+        itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(mainAdapter))
+        itemTouchHelper.attachToRecyclerView(recyclerView)
 
         selectDB()
 
@@ -70,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         // Log.d("Guru", "list size ${list.size}")
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = MyAdapter(list)
+        recyclerView.adapter = MyAdapter(list,this)
         recyclerView.addItemDecoration(MyDecoration())
     }
 
@@ -97,7 +116,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     // 어댑터 설정
-    inner class MyAdapter(val list: MutableList<ItemVO>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+    inner class MyAdapter(val list: MutableList<ItemVO>, val listener: ItemDragListener)
+        : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemActionListener{
 
         //만일 항목타입이 다를 경우
         override fun getItemViewType(position: Int): Int {
@@ -113,6 +133,24 @@ class MainActivity : AppCompatActivity() {
             } else{
                 val layoutInflater = LayoutInflater.from(parent?.context)
                 return DataViewHolder(layoutInflater.inflate(R.layout.item_main, parent, false))
+            }
+        }
+
+        //드래그 앤 드롭
+        @SuppressLint("ClickableViewAccessibility")
+        inner class ViewHolder(itemView: View, listener: ItemDragListener) : RecyclerView.ViewHolder(itemView) {
+
+            init {
+                itemView.todo_group.setOnTouchListener { v, event ->
+                    if (event.action == MotionEvent.ACTION_DOWN) {
+                        listener.onStartDrag(this)
+                    }
+                    false
+                }
+            }
+
+            fun bind(item: ItemVO) {
+                itemView.itemHeaderView.text = item.type.toString()
             }
         }
 
@@ -195,6 +233,22 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount(): Int {
             return list.size
         }
+
+        //드래그 앤 드롭
+        override fun onItemMoved(from: Int, to: Int) {
+            if (from == to) {
+                return
+            }
+
+            val fromItem = list.removeAt(from)
+            list.add(to, fromItem)
+            notifyItemMoved(from, to)
+        }
+        //드래그 앤 드롭
+        override fun onItemSwiped(position: Int) {
+            list.removeAt(position)
+            notifyItemRemoved(position)
+        }
     }
 
     inner class MyDecoration(): RecyclerView.ItemDecoration(){
@@ -214,6 +268,11 @@ class MainActivity : AppCompatActivity() {
             }
             outRect!!.set(20,10,20,10)
         }
+    }
+
+    //드래그 앤 드롭
+    override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+        itemTouchHelper.startDrag(viewHolder)
     }
 }
 

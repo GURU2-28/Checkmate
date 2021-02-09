@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/todo_group"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
@@ -11,10 +11,10 @@
         android:id="@+id/checkTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="32dp"
-        android:maxHeight="32dp"
         android:adjustViewBounds="true"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:maxWidth="32dp"
+        android:maxHeight="32dp" />
 
     <TextView
         android:id="@+id/itemTitleView"
@@ -34,17 +34,24 @@
         android:layout_below="@+id/itemTitleView"
         android:layout_alignLeft="@+id/itemTitleView"
         android:ellipsize="end"
-        android:maxLines="1"
-        />
+        android:maxLines="1" />
 
     <ImageButton
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_toLeftOf="@id/dehaze"
         android:layout_centerVertical="true"
         app:srcCompat="@drawable/ic_baseline_delete_24"
         tools:ignore="VectorDrawableCompat" />
 
+    <ImageButton
+        android:id="@+id/dehaze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_baseline_dehaze_24"
+        tools:ignore="VectorDrawableCompat" />
 
 </RelativeLayout>

@@ -24,6 +24,10 @@
         "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\drawable\\date.png"
     },
     {
+        "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_baseline_dehaze_24.png.flat",
+        "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_baseline_dehaze_24.png"
+    },
+    {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
         "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
@@ -60,8 +64,16 @@
         "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_baseline_dehaze_24.png.flat",
+        "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_baseline_dehaze_24.png"
+    },
+    {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_baseline_dehaze_24.xml.flat",
+        "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_baseline_dehaze_24.xml"
     },
     {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_foreground.png.flat",
@@ -96,8 +108,20 @@
         "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_foreground.png"
     },
     {
+        "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_baseline_dehaze_24.png.flat",
+        "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_baseline_dehaze_24.png"
+    },
+    {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_baseline_done_24.png.flat",
         "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_baseline_done_24.png"
+    },
+    {
+        "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_baseline_dehaze_24.png.flat",
+        "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_baseline_dehaze_24.png"
+    },
+    {
+        "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_baseline_dehaze_24.png.flat",
+        "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_baseline_dehaze_24.png"
     },
     {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_baseline_delete_24.png.flat",
@@ -142,6 +166,10 @@
     {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_baseline_delete_24.png.flat",
         "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_baseline_delete_24.png"
+    },
+    {
+        "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_baseline_dehaze_24.png.flat",
+        "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_baseline_dehaze_24.png"
     },
     {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
@@ -230,6 +258,10 @@
     {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_baseline_add_24.png.flat",
         "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_baseline_add_24.png"
+    },
+    {
+        "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logoooo.png.flat",
+        "source": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\drawable\\logoooo.png"
     },
     {
         "merged": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_baseline_delete_24.png.flat",

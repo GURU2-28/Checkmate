@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
         val itemTitleView = view.itemTitleView
         val itemContentView = view.itemContentView
         val deleteButton = view.deleteButton
-
+        val dehaze = view.dehaze
     }
 
     // 어댑터 설정
@@ -136,25 +136,8 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
             }
         }
 
-        //드래그 앤 드롭
-        @SuppressLint("ClickableViewAccessibility")
-        inner class ViewHolder(itemView: View, listener: ItemDragListener) : RecyclerView.ViewHolder(itemView) {
-
-            init {
-                itemView.todo_group.setOnTouchListener { v, event ->
-                    if (event.action == MotionEvent.ACTION_DOWN) {
-                        listener.onStartDrag(this)
-                    }
-                    false
-                }
-            }
-
-            fun bind(item: ItemVO) {
-                itemView.itemHeaderView.text = item.type.toString()
-            }
-        }
-
         //항목 구성(HEADER, DATA)
+        @SuppressLint("ClickableViewAccessibility")
         override fun onBindViewHolder(
             holder: RecyclerView.ViewHolder,
             position: Int
@@ -183,6 +166,13 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
                         notifyDataSetChanged()
                     }
                     db.close()
+                }
+                //드래그 앤 드롭 구현 요소
+                viewHolder.dehaze.setOnTouchListener { v, event ->
+                    if (event.action == MotionEvent.ACTION_DOWN) {
+                        listener.onStartDrag(viewHolder)
+                    }
+                    false
                 }
 
                 // 사용자가 체크박스 클릭시
@@ -229,25 +219,28 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
                 }
             }
         }
-
-        override fun getItemCount(): Int {
-            return list.size
-        }
-
-        //드래그 앤 드롭
+        //드래그 앤 드롭 객체 위아래로 움직일 수 있게하는 부분
         override fun onItemMoved(from: Int, to: Int) {
-            if (from == to) {
-                return
+            if (from < to) {
+                for (i in from until to) {
+                    Collections.swap(list, i, i + 1)
+                }
+            } else {
+                for (i in from downTo to + 1) {
+                    Collections.swap(list, i, i - 1)
+                }
             }
-
-            val fromItem = list.removeAt(from)
-            list.add(to, fromItem)
             notifyItemMoved(from, to)
         }
-        //드래그 앤 드롭
+
+        //얘는 좌우로 슬라이드 하면 삭제시키는 기능 이라 나중에 필요없으면 삭제해도 될것 같아요
         override fun onItemSwiped(position: Int) {
             list.removeAt(position)
             notifyItemRemoved(position)
+        }
+
+        override fun getItemCount(): Int {
+            return list.size
         }
     }
 

@@ -16,12 +16,12 @@
         "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\layout\\item_header.xml"
     },
     {
-        "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon.png.flat",
-        "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\drawable\\icon.png"
-    },
-    {
         "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon.png.flat",
+        "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\drawable\\icon.png"
     },
     {
         "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
@@ -124,6 +124,10 @@
         "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
+        "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable_splash.xml.flat",
+        "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\drawable\\splash.xml"
+    },
+    {
         "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
@@ -182,6 +186,10 @@
     {
         "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_baseline_delete_24.png.flat",
         "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_baseline_delete_24.png"
+    },
+    {
+        "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logoooo.png.flat",
+        "source": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\src\\main\\res\\drawable\\logoooo.png"
     },
     {
         "merged": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\res\\merged\\debug\\drawable_checklisticon.png.flat",

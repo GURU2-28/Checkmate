@@ -1033,6 +1033,7 @@ color gray
 color gray00
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color logo_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1660,6 +1661,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icon
 drawable icon_completed
+drawable logoooo
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1692,6 +1694,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable splash
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light

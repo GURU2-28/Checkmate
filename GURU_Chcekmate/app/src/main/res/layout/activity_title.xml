@@ -9,63 +9,66 @@
         android:id="@+id/imageView"
         android:layout_width="167dp"
         android:layout_height="258dp"
-        android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/checklisticon" />
+        app:layout_constraintVertical_bias="0.120000005"
+        app:srcCompat="@drawable/list" />
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:bufferType="spannable"
-        android:fontFamily="@font/sdsamliphopangchettfoutline"
-        android:text="체크메이트"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_exit"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="62dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_baseline_done_24"
+        app:layout_constraintBottom_toTopOf="@+id/titleText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.65" />
 
     <Button
         android:id="@+id/btn_plan"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="149dp"
+        android:layout_height="63dp"
         android:background="@drawable/button_round"
         android:fontFamily="@font/sdsamliphopangchettfbasic"
         android:text="일정관리"
         android:textSize="24sp"
         app:backgroundTint="#E89292"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="#FFFFFF" />
+        app:rippleColor="#FFFFFF"
+        tools:layout_editor_absoluteY="391dp" />
 
     <Button
         android:id="@+id/btn_exit"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="149dp"
+        android:layout_height="63dp"
         android:background="@drawable/button_round"
         android:fontFamily="@font/sdsamliphopangchettfbasic"
         android:text="종료"
         android:textSize="24sp"
         app:backgroundTint="#E89292"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_plan"
+        app:layout_constraintVertical_bias="0.23000002" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="62dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/titleText"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        android:src="@drawable/ic_baseline_done_24" />
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:bufferType="spannable"
+        android:fontFamily="@font/sdsamliphopangchettfoutline"
+        android:text="체크메이트"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_plan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

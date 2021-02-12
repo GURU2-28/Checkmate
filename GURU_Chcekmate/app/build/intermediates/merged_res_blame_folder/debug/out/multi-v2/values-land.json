@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\wowmt\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "C:\\gurugit\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\wowmt\\.gradle\\caches\\transforms-2\\files-2.1\\f04f77f5bf22057a29bdffafb3270f20\\appcompat-1.2.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\doitf\\.gradle\\caches\\transforms-2\\files-2.1\\e2b22b6e8f997207d0873e2690dc8e53\\appcompat-1.2.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\wowmt\\.gradle\\caches\\transforms-2\\files-2.1\\4fd79494f1059d767a47ec471258eb36\\material-1.3.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\doitf\\.gradle\\caches\\transforms-2\\files-2.1\\6f1bffef249881b9aa9b6f725101f319\\material-1.3.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,24,30",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

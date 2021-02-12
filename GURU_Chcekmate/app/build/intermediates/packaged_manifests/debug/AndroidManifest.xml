@@ -18,9 +18,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/GURU_Chcekmate" >
-        <activity
-            android:name="com.example.guru_chcekmate.Title"
-            android:theme="@style/SplashTheme" >
+        <activity android:name="com.example.guru_chcekmate.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,6 +34,7 @@
             android:name="com.example.guru_chcekmate.MainActivity"
             android:parentActivityName="com.example.guru_chcekmate.Title" >
         </activity>
+        <activity android:name="com.example.guru_chcekmate.Title" />
     </application>
 
 </manifest>

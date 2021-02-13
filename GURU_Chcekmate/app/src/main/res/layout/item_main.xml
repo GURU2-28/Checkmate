@@ -40,8 +40,10 @@
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/dehaze"
         android:layout_centerVertical="true"
+        android:layout_marginRight="11dp"
+        android:layout_toLeftOf="@id/dehaze"
+        android:background="@android:color/transparent"
         app:srcCompat="@drawable/ic_baseline_delete_24"
         tools:ignore="VectorDrawableCompat" />
 
@@ -52,6 +54,7 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         app:srcCompat="@drawable/ic_baseline_dehaze_24"
-        tools:ignore="VectorDrawableCompat" />
+        tools:ignore="VectorDrawableCompat"
+        android:background="@android:color/transparent"/>
 
 </RelativeLayout>

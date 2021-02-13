@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.RelativeSizeSpan
@@ -22,9 +23,7 @@ lateinit var btn_edit:Button
 lateinit var btn_exit:Button
 lateinit var titleText:TextView
 
-
 class Title : AppCompatActivity() {
-
     //타이틀 액티비티
     //exit_popup 타이틀에서 종료시 팝업용
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -27,30 +27,16 @@ import kotlinx.android.synthetic.main.item_main.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-class MainActivity : AppCompatActivity(), ItemDragListener {
+class MainActivity : AppCompatActivity() {
 
     //list 객체에 db에서 선택한 데이터 저장
     var list: MutableList<ItemVO> = mutableListOf()
-
-    lateinit var mainAdapter: MyAdapter //드래그 앤 드롭
-    lateinit var itemTouchHelper: ItemTouchHelper //드래그 앤 드롭
+    var adapater : MyAdapter? = null
+    var touchHelper : ItemTouchHelper? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //드래그 앤 드롭
-        mainAdapter = MyAdapter(list,this)
-
-        recyclerView.apply {
-            adapter = mainAdapter
-            layoutManager = LinearLayoutManager(context)
-            addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
-        }
-
-        itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(mainAdapter))
-        itemTouchHelper.attachToRecyclerView(recyclerView)
 
         selectDB()
 
@@ -58,6 +44,27 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
             val intent = Intent(this, AddTodoActivity2::class.java)
             startActivityForResult(intent, 10)
         }
+        touchHelper =
+                ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) {
+                    override fun onMove(
+                            p0: RecyclerView,
+                            p1: RecyclerView.ViewHolder,
+                            p2: RecyclerView.ViewHolder
+                    ): Boolean {
+                        val sourcePosition = p1.adapterPosition
+                        val targetPosition = p2.adapterPosition
+                        Collections.swap(list,sourcePosition,targetPosition)
+                        adapater?.notifyItemMoved(sourcePosition,targetPosition)
+                        return true
+                    }
+
+                    override fun onSwiped(p0: RecyclerView.ViewHolder, p1: Int) {
+                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    }
+
+                })
+
+        touchHelper?.attachToRecyclerView(recyclerView)
     }
 
     //db에서 데이터를 선택하기위한 메소드
@@ -101,8 +108,8 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
         }
     }
 
-    // 뷰홀더1 : 뷰를 준비함
-    class HeaderViewHolder(view: View): RecyclerView.ViewHolder(view){
+    // 뷰홀더1 : 뷰를 준비함 adapter의 inner class로 옮겼습니다.
+    /*class HeaderViewHolder(view: View): RecyclerView.ViewHolder(view){
         val headerView = view.itemHeaderView
     }
 
@@ -113,11 +120,11 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
         val itemContentView = view.itemContentView
         val deleteButton = view.deleteButton
         val dehaze = view.dehaze
-    }
+    }*/
 
     // 어댑터 설정
-    inner class MyAdapter(val list: MutableList<ItemVO>, val listener: ItemDragListener)
-        : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ItemActionListener{
+    inner class MyAdapter(val list: MutableList<ItemVO>, val activity: MainActivity)
+        : RecyclerView.Adapter<MyAdapter.ViewHolder>(){
 
         //만일 항목타입이 다를 경우
         override fun getItemViewType(position: Int): Int {
@@ -125,33 +132,38 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
         }
 
         //getItemViewType에서 결정한 항목타입 전달, 타입이 HEADER쪽인지 DATA쪽인지 판단
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            if(viewType==ItemVO.TYPE_HEADER){
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            if (viewType == ItemVO.TYPE_HEADER) {
                 // parent?.context : parent가 not null 이면 context가 리턴되고 null 이면 null이 리턴된다.
-                val layoutInflater = LayoutInflater.from(parent?.context)
-                return HeaderViewHolder(layoutInflater.inflate(R.layout.item_header, parent, false))
-            } else{
-                val layoutInflater = LayoutInflater.from(parent?.context)
-                return DataViewHolder(layoutInflater.inflate(R.layout.item_main, parent, false))
+                val layoutInflater = LayoutInflater.from(parent?.context).inflate(R.layout.item_header, parent, false)
+                return ViewHolder(layoutInflater)
+            } else {
+                val layoutInflater = LayoutInflater.from(parent?.context).inflate(R.layout.item_main, parent, false)
+                return ViewHolder(layoutInflater)
             }
+        }
+
+        @SuppressLint("ClickableViewAccessibility")
+        inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+            val headerView = view.itemHeaderView
+            val completedIconView = view.checkTodo
+            val itemTitleView = view.itemTitleView
+            val itemContentView = view.itemContentView
+            val deleteButton = view.deleteButton
+            val dehaze = view.dehaze
         }
 
         //항목 구성(HEADER, DATA)
         @SuppressLint("ClickableViewAccessibility")
-        override fun onBindViewHolder(
-            holder: RecyclerView.ViewHolder,
-            position: Int
-        )
-        {
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             //항목 타입 전달(HEADER, DATA)
-            val itemVO = list.get(position)
+            val itemVO = list[position]
+            val viewHolder = holder
 
             if(itemVO.type==ItemVO.TYPE_HEADER){
-                val viewHolder = holder as HeaderViewHolder
                 val headerItem = itemVO as HeaderItem
                 viewHolder.headerView.setText(headerItem.data)
             }else{
-                val viewHolder = holder as DataViewHolder
                 val dataItem = itemVO as DataItem
                 viewHolder.itemTitleView.setText(dataItem.title)
                 viewHolder.itemContentView.setText(dataItem.content)
@@ -170,7 +182,7 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
                 //드래그 앤 드롭 구현 요소
                 viewHolder.dehaze.setOnTouchListener { v, event ->
                     if (event.action == MotionEvent.ACTION_DOWN) {
-                        listener.onStartDrag(viewHolder)
+                        activity.touchHelper?.startDrag(holder)
                     }
                     false
                 }
@@ -219,26 +231,6 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
                 }
             }
         }
-        //드래그 앤 드롭 객체 위아래로 움직일 수 있게하는 부분
-        override fun onItemMoved(from: Int, to: Int) {
-            if (from < to) {
-                for (i in from until to) {
-                    Collections.swap(list, i, i + 1)
-                }
-            } else {
-                for (i in from downTo to + 1) {
-                    Collections.swap(list, i, i - 1)
-                }
-            }
-            notifyItemMoved(from, to)
-        }
-
-        //얘는 좌우로 슬라이드 하면 삭제시키는 기능 이라 나중에 필요없으면 삭제해도 될것 같아요
-        override fun onItemSwiped(position: Int) {
-            list.removeAt(position)
-            notifyItemRemoved(position)
-        }
-
         override fun getItemCount(): Int {
             return list.size
         }
@@ -262,13 +254,7 @@ class MainActivity : AppCompatActivity(), ItemDragListener {
             outRect!!.set(20,10,20,10)
         }
     }
-
-    //드래그 앤 드롭
-    override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
-        itemTouchHelper.startDrag(viewHolder)
-    }
 }
-
 
 abstract class ItemVO{
     abstract val type: Int

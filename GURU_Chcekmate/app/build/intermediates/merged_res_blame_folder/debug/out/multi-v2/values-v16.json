@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\gurugit\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\doitf\\.gradle\\caches\\transforms-2\\files-2.1\\6915425cdc22232788aa0c2e210fd9d8\\core-1.3.2\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\minj-L\\.gradle\\caches\\transforms-2\\files-2.1\\6915425cdc22232788aa0c2e210fd9d8\\core-1.3.2\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\doitf\\.gradle\\caches\\transforms-2\\files-2.1\\e2b22b6e8f997207d0873e2690dc8e53\\appcompat-1.2.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\minj-L\\.gradle\\caches\\transforms-2\\files-2.1\\e2b22b6e8f997207d0873e2690dc8e53\\appcompat-1.2.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

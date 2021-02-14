@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\gurugit\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
+            "outputFile": "C:\\GURU2\\Checkmate\\GURU_Chcekmate\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\doitf\\.gradle\\caches\\transforms-2\\files-2.1\\e2b22b6e8f997207d0873e2690dc8e53\\appcompat-1.2.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\minj-L\\.gradle\\caches\\transforms-2\\files-2.1\\e2b22b6e8f997207d0873e2690dc8e53\\appcompat-1.2.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

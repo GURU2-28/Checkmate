@@ -4,13 +4,13 @@ com/example/guru_chcekmate/databinding/ActivityTitleBinding.java
  com.example.guru_chcekmate.databinding.ActivityTitleBinding
 com/example/guru_chcekmate/databinding/ItemHeaderBinding.java
  com.example.guru_chcekmate.databinding.ItemHeaderBinding
-com/example/guru_chcekmate/databinding/ExitPopupBinding.java
- com.example.guru_chcekmate.databinding.ExitPopupBinding
+com/example/guru_chcekmate/databinding/ActivitySplashBinding.java
+ com.example.guru_chcekmate.databinding.ActivitySplashBinding
 com/example/guru_chcekmate/databinding/ItemMainBinding.java
  com.example.guru_chcekmate.databinding.ItemMainBinding
 com/example/guru_chcekmate/BuildConfig.java
  com.example.guru_chcekmate.BuildConfig
 com/example/guru_chcekmate/databinding/ActivityMainBinding.java
  com.example.guru_chcekmate.databinding.ActivityMainBinding
-com/example/guru_chcekmate/databinding/ActivitySplashBinding.java
- com.example.guru_chcekmate.databinding.ActivitySplashBinding
+com/example/guru_chcekmate/databinding/ExitPopupBinding.java
+ com.example.guru_chcekmate.databinding.ExitPopupBinding

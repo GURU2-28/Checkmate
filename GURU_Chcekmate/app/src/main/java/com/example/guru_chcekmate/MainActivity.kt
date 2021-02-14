@@ -44,6 +44,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddTodoActivity2::class.java)
             startActivityForResult(intent, 10)
         }
+
+        //드래그앤 드롭 객체 움직이기
         touchHelper =
                 ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) {
                     override fun onMove(
@@ -107,20 +109,6 @@ class MainActivity : AppCompatActivity() {
             selectDB()
         }
     }
-
-    // 뷰홀더1 : 뷰를 준비함 adapter의 inner class로 옮겼습니다.
-    /*class HeaderViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val headerView = view.itemHeaderView
-    }
-
-    // 뷰홀더2: 데이타 준비함
-    class DataViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val completedIconView = view.checkTodo
-        val itemTitleView = view.itemTitleView
-        val itemContentView = view.itemContentView
-        val deleteButton = view.deleteButton
-        val dehaze = view.dehaze
-    }*/
 
     // 어댑터 설정
     inner class MyAdapter(val list: MutableList<ItemVO>, val activity: MainActivity)
